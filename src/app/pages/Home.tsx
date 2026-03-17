@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from 'react-router';
 import { User, GraduationCap, Code, Award, ArrowRight } from 'lucide-react';
 
 export default function Home() {
@@ -41,7 +41,7 @@ export default function Home() {
               <p><strong>Ubicación:</strong> Ciudad, País</p>
             </div>
             <Link
-              href="/contact"
+              to="/contact"
               className="inline-flex items-center gap-2 mt-6 px-6 py-3 border-2 border-white rounded-lg hover:bg-white hover:text-black transition-all"
             >
               Contáctame
