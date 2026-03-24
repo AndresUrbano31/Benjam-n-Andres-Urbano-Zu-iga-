@@ -23,11 +23,11 @@ export default function Contact() {
   };
 
   return (
-    <div className="p-8 md:p-16">
+    <div className="p-8 md:p-16 max-w-6xl mx-auto">
       {/* Header */}
       <section className="mb-12">
         <h1 className="text-6xl md:text-8xl font-bold tracking-wider mb-6">CONTACT</h1>
-        <div className="max-w-3xl">
+        <div>
           <p className="text-xl text-gray-300">
             ¿Tienes un proyecto en mente? ¿Quieres colaborar? No dudes en contactarme. 
             Estoy siempre abierto a nuevas oportunidades y conversaciones.
@@ -35,7 +35,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <div className="grid lg:grid-cols-2 gap-8 max-w-6xl">
+      <div className="grid lg:grid-cols-2 gap-8">
         {/* Contact Information */}
         <div className="space-y-8">
           {/* Contact Info Section */}
@@ -84,31 +84,19 @@ export default function Contact() {
           <section>
             <h3 className="text-2xl font-bold mb-4">REDES SOCIALES</h3>
             <div className="grid grid-cols-2 gap-4">
-              <a
-                href="#"
-                className="flex items-center gap-3 p-4 border-2 border-white rounded-lg bg-black/30 backdrop-blur-sm hover:bg-white hover:text-black transition-all"
-              >
+              <a href="#" className="flex items-center gap-3 p-4 border-2 border-white rounded-lg bg-black/30 backdrop-blur-sm hover:bg-white hover:text-black transition-all">
                 <Facebook size={24} />
                 <span>Facebook</span>
               </a>
-              <a
-                href="#"
-                className="flex items-center gap-3 p-4 border-2 border-white rounded-lg bg-black/30 backdrop-blur-sm hover:bg-white hover:text-black transition-all"
-              >
+              <a href="#" className="flex items-center gap-3 p-4 border-2 border-white rounded-lg bg-black/30 backdrop-blur-sm hover:bg-white hover:text-black transition-all">
                 <Instagram size={24} />
                 <span>Instagram</span>
               </a>
-              <a
-                href="#"
-                className="flex items-center gap-3 p-4 border-2 border-white rounded-lg bg-black/30 backdrop-blur-sm hover:bg-white hover:text-black transition-all"
-              >
+              <a href="#" className="flex items-center gap-3 p-4 border-2 border-white rounded-lg bg-black/30 backdrop-blur-sm hover:bg-white hover:text-black transition-all">
                 <Github size={24} />
                 <span>Github</span>
               </a>
-              <a
-                href="#"
-                className="flex items-center gap-3 p-4 border-2 border-white rounded-lg bg-black/30 backdrop-blur-sm hover:bg-white hover:text-black transition-all"
-              >
+              <a href="#" className="flex items-center gap-3 p-4 border-2 border-white rounded-lg bg-black/30 backdrop-blur-sm hover:bg-white hover:text-black transition-all">
                 <Linkedin size={24} />
                 <span>LinkedIn</span>
               </a>
@@ -139,9 +127,7 @@ export default function Contact() {
 
           <form onSubmit={handleSubmit} className="border-2 border-white p-8 rounded-lg bg-black/30 backdrop-blur-sm space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-bold mb-2">
-                NOMBRE *
-              </label>
+              <label htmlFor="name" className="block text-sm font-bold mb-2">NOMBRE *</label>
               <input
                 type="text"
                 id="name"
@@ -155,9 +141,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-bold mb-2">
-                EMAIL *
-              </label>
+              <label htmlFor="email" className="block text-sm font-bold mb-2">EMAIL *</label>
               <input
                 type="email"
                 id="email"
@@ -171,9 +155,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label htmlFor="subject" className="block text-sm font-bold mb-2">
-                ASUNTO *
-              </label>
+              <label htmlFor="subject" className="block text-sm font-bold mb-2">ASUNTO *</label>
               <input
                 type="text"
                 id="subject"
@@ -187,9 +169,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-bold mb-2">
-                MENSAJE *
-              </label>
+              <label htmlFor="message" className="block text-sm font-bold mb-2">MENSAJE *</label>
               <textarea
                 id="message"
                 name="message"

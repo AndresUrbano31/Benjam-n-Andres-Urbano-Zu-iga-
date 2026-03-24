@@ -3,12 +3,12 @@ import { User, GraduationCap, Code, Award, ArrowRight } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="p-8 md:p-16">
+    <div className="p-8 md:p-16 max-w-6xl mx-auto">
       {/* Hero Section */}
       <section className="mb-16">
         <h1 className="text-6xl md:text-8xl font-bold tracking-wider mb-8">HOME</h1>
         
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl">
+        <div className="grid md:grid-cols-2 gap-8">
           {/* Welcome Card */}
           <div className="border-2 border-white p-8 rounded-lg bg-black/30 backdrop-blur-sm">
             <div className="flex items-center gap-4 mb-6">
@@ -52,7 +52,7 @@ export default function Home() {
       </section>
 
       {/* Education Section */}
-      <section className="mb-16 max-w-6xl">
+      <section className="mb-16">
         <div className="flex items-center gap-4 mb-8">
           <div className="border-2 border-white p-4 rounded-lg">
             <GraduationCap size={40} />
@@ -78,7 +78,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section className="max-w-6xl">
+      <section>
         <div className="flex items-center gap-4 mb-8">
           <div className="border-2 border-white p-4 rounded-lg">
             <Code size={40} />

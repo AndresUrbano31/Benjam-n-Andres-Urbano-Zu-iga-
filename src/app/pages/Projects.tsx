@@ -41,11 +41,11 @@ export default function Projects() {
   ];
 
   return (
-    <div className="p-8 md:p-16">
+    <div className="p-8 md:p-16 max-w-6xl mx-auto">
       {/* Header */}
       <section className="mb-12">
         <h1 className="text-6xl md:text-8xl font-bold tracking-wider mb-6">PROJECTS</h1>
-        <div className="max-w-3xl">
+        <div>
           <p className="text-xl text-gray-300">
             Aquí encontrarás una selección de mis proyectos más destacados. Cada uno representa 
             un desafío único y una oportunidad de aprendizaje.
@@ -54,7 +54,7 @@ export default function Projects() {
       </section>
 
       {/* Featured Project */}
-      <section className="mb-16 max-w-6xl">
+      <section className="mb-16">
         <div className="flex items-center gap-4 mb-8">
           <div className="border-2 border-white p-4 rounded-lg">
             <Laptop size={40} />
@@ -70,16 +70,10 @@ export default function Projects() {
                 <p className="text-gray-300">2024</p>
               </div>
               <div className="flex gap-3">
-                <a
-                  href="#"
-                  className="border-2 border-white p-2 rounded-lg hover:bg-white hover:text-black transition-all"
-                >
+                <a href="#" className="border-2 border-white p-2 rounded-lg hover:bg-white hover:text-black transition-all">
                   <ExternalLink size={24} />
                 </a>
-                <a
-                  href="#"
-                  className="border-2 border-white p-2 rounded-lg hover:bg-white hover:text-black transition-all"
-                >
+                <a href="#" className="border-2 border-white p-2 rounded-lg hover:bg-white hover:text-black transition-all">
                   <Github size={24} />
                 </a>
               </div>
@@ -93,10 +87,7 @@ export default function Projects() {
 
             <div className="flex flex-wrap gap-3 mb-6">
               {['React', 'TypeScript', 'Web3', 'Tailwind CSS', 'Chart.js'].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-4 py-2 border-2 border-white rounded-full text-sm"
-                >
+                <span key={tag} className="px-4 py-2 border-2 border-white rounded-full text-sm">
                   {tag}
                 </span>
               ))}
@@ -117,7 +108,7 @@ export default function Projects() {
       </section>
 
       {/* Other Projects */}
-      <section className="max-w-6xl">
+      <section>
         <h2 className="text-4xl font-bold mb-8">OTROS PROYECTOS</h2>
         
         <div className="grid md:grid-cols-2 gap-6">
@@ -132,31 +123,20 @@ export default function Projects() {
                   <p className="text-gray-300">{project.year}</p>
                 </div>
                 <div className="flex gap-2">
-                  <a
-                    href="#"
-                    className="border border-white p-1.5 rounded hover:bg-white hover:text-black transition-all"
-                  >
+                  <a href="#" className="border border-white p-1.5 rounded hover:bg-white hover:text-black transition-all">
                     <ExternalLink size={18} />
                   </a>
-                  <a
-                    href="#"
-                    className="border border-white p-1.5 rounded hover:bg-white hover:text-black transition-all"
-                  >
+                  <a href="#" className="border border-white p-1.5 rounded hover:bg-white hover:text-black transition-all">
                     <Github size={18} />
                   </a>
                 </div>
               </div>
 
-              <p className="text-gray-200 mb-4">
-                {project.description}
-              </p>
+              <p className="text-gray-200 mb-4">{project.description}</p>
 
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 border border-white rounded-full text-sm"
-                  >
+                  <span key={tag} className="px-3 py-1 border border-white rounded-full text-sm">
                     {tag}
                   </span>
                 ))}
