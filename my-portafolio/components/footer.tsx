@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { Code2, Share2, MessageCircle, Mail } from 'lucide-react';
+import { Share2, MessageCircle, Mail } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useLanguage } from '@/components/language-context';
 
 export function Footer() {
@@ -31,11 +32,6 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/curriculum" className="dark:text-gray-400 text-slate-600 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
-                  {t('footer.curriculum')}
-                </Link>
-              </li>
-              <li>
                 <Link href="/contacto" className="dark:text-gray-400 text-slate-600 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
                   {t('nav.contact')}
                 </Link>
@@ -46,25 +42,15 @@ export function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4 text-cyan-500 dark:text-cyan-400">{t('footer.follow')}</h3>
             <div className="flex gap-4">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+              <a href="https://github.com/AndresUrbano31" target="_blank" rel="noopener noreferrer"
                 className="p-2 rounded-lg dark:bg-slate-900/50 bg-slate-100 hover:bg-cyan-500/10 dark:text-gray-400 text-slate-600 hover:text-cyan-500 dark:hover:text-cyan-400 transition-all"
                 aria-label="GitHub">
-                <Code2 size={20} />
+                <FaGithub size={24} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.linkedin.com/in/benjam%C3%ADn-urbano-2108z" target="_blank" rel="noopener noreferrer"
                 className="p-2 rounded-lg dark:bg-slate-900/50 bg-slate-100 hover:bg-cyan-500/10 dark:text-gray-400 text-slate-600 hover:text-cyan-500 dark:hover:text-cyan-400 transition-all"
                 aria-label="LinkedIn">
-                <Share2 size={20} />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
-                className="p-2 rounded-lg dark:bg-slate-900/50 bg-slate-100 hover:bg-cyan-500/10 dark:text-gray-400 text-slate-600 hover:text-cyan-500 dark:hover:text-cyan-400 transition-all"
-                aria-label="Twitter">
-                <MessageCircle size={20} />
-              </a>
-              <a href="mailto:contact@example.com"
-                className="p-2 rounded-lg dark:bg-slate-900/50 bg-slate-100 hover:bg-cyan-500/10 dark:text-gray-400 text-slate-600 hover:text-cyan-500 dark:hover:text-cyan-400 transition-all"
-                aria-label="Email">
-                <Mail size={20} />
+                <FaLinkedin size={24} />
               </a>
             </div>
           </div>

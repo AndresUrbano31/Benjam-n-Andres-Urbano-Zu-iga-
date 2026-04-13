@@ -82,7 +82,7 @@ const translations = {
 
     // Footer
     'footer.about': 'About Me',
-    'footer.about.text': 'Full-Stack developer passionate about creating exceptional digital experiences.',
+    'footer.about.text': 'Software Engineering student and Java backend developer, passionate about building robust and scalable solutions.',
     'footer.links': 'Quick Links',
     'footer.follow': 'Follow Me',
     'footer.rights': 'All rights reserved.',
@@ -164,7 +164,7 @@ const translations = {
 
     // Footer
     'footer.about': 'Sobre Mí',
-    'footer.about.text': 'Desarrollador Full-Stack apasionado por crear experiencias digitales excepcionales.',
+    'footer.about.text': 'Estudiante de Ingeniería de Software y desarrollador backend en Java, apasionado por construir soluciones robustas y escalables.',
     'footer.links': 'Enlaces Rápidos',
     'footer.follow': 'Sígueme',
     'footer.rights': 'Todos los derechos reservados.',
