@@ -2,11 +2,10 @@
   "name": "my-portafolio",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
+   "scripts": {
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev": "next dev",
+    "start": "next start"
   },
   "dependencies": {
     "lucide-react": "^1.8.0",
