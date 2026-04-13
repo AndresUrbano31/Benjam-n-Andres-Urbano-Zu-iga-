@@ -6,6 +6,7 @@ import { useTheme } from 'next-themes';
 import { Sun, Moon, ChevronDown, Globe } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '@/components/language-context';
+import { navigationItems } from '@/config/navigation';
 
 function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -71,16 +72,9 @@ export function Header() {
   const pathname = usePathname();
   const { t } = useLanguage();
 
-  const navigationItems = [
-    { name: t('nav.home'), href: '/' },
-    { name: t('nav.projects'), href: '/proyectos' },
-    { name: t('nav.contact'), href: '/contacto' },
-  ];
-
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-950/80 backdrop-blur-sm hidden md:block transition-colors duration-300">
       <nav className="max-w-7xl mx-auto px-6 md:px-8 lg:px-16 py-4 flex items-center justify-between">
-        {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
           <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center font-bold text-white group-hover:shadow-lg group-hover:shadow-cyan-500/50 transition-all">
             BU
@@ -88,7 +82,6 @@ export function Header() {
           <span className="font-bold text-xl gradient-text">Portfolio</span>
         </Link>
 
-        {/* Nav + Controls */}
         <div className="flex items-center gap-3">
           {navigationItems.map((item) => (
             <Link
@@ -100,7 +93,7 @@ export function Header() {
                   : 'border-slate-300 dark:border-gray-600 text-slate-600 dark:text-gray-300 hover:border-cyan-500 hover:text-cyan-400'
               }`}
             >
-              {item.name}
+              {t(item.labelKey)}
             </Link>
           ))}
           <LanguageSelector />

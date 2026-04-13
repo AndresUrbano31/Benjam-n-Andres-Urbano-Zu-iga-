@@ -1,51 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Lottie from "lottie-react";
 import robotAnimation from "@/public/robot.json";
 import { FaGithub } from "react-icons/fa";
 import { Users, BookOpen, Code2, Award, ExternalLink, ArrowRight, Download } from "lucide-react";
 import { useLanguage } from "@/components/language-context";
+import { projects } from "@/data/projects";
+import { testimonials } from "@/data/testimonials";
+import { skillGroups } from "@/data/skills";
+import { educationList } from "@/data/education";
 
 export default function HomePage() {
   const { t } = useLanguage();
-
-  const projects = [
-    {
-      title: "Profile Cards UI",
-      description: "Profile card component built with Next.js and Tailwind CSS. Includes dark and light theme, avatar, stats, and contact button.",
-      descriptionEs: "Componente de tarjetas de perfil construido con Next.js y Tailwind CSS. Incluye tema oscuro y claro, avatar, estadísticas y botón de contacto.",
-      tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
-      link: "https://taller-practico-five.vercel.app/",
-      github: "https://github.com/AndresUrbano31/Taller-Practico",
-      image: "/Cards.png",
-    },
-    {
-      title: "Astro Sign Up",
-      description: "Registration form with space design. Includes Google and Facebook authentication, input fields, and responsive design with visual panel.",
-      descriptionEs: "Formulario de registro con diseño espacial. Incluye autenticación con Google y Facebook, campos de entrada y diseño responsive con panel visual.",
-      tags: ["Next.js", "Tailwind CSS", "React", "TypeScript"],
-      link: "https://dise-o-de-interfaces-taller-4.vercel.app/",
-      github: "https://github.com/AndresUrbano31/Dise-o-de-interfaces-taller-4",
-      image: "/Exploring.png",
-    },
-  ];
-
-  const testimonials = [
-  {
-    text: t('home.testimonial.1.text'),
-    name: t('home.testimonial.1.name'),
-    role: t('home.testimonial.1.role'),
-    initial: "R",
-  },
-  {
-    text: t('home.testimonial.2.text'),
-    name: t('home.testimonial.2.name'),
-    role: t('home.testimonial.2.role'),
-    initial: "P",
-  },
-];
-;
 
   return (
     <div className="min-h-screen">
@@ -114,10 +82,10 @@ export default function HomePage() {
                     {t('home.contact.btn')}
                     <ArrowRight size={16} />
                   </Link>
-                  <Link href="/cv.pdf" className="inline-flex items-center gap-2 px-4 py-2 button-primary">
+                  <a href="/cv.pdf" download className="inline-flex items-center gap-2 px-4 py-2 button-primary">
                     <Download size={18} />
                     {t('home.download.cv')}
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
@@ -131,13 +99,15 @@ export default function HomePage() {
                 <div key={idx} className="card-hover">
                   <div className="card">
                     <p className="dark:text-gray-200 text-slate-700 mb-6 italic text-base leading-relaxed font-medium">
-                      "{testimonial.text}"
+                      "{t(testimonial.textKey)}"
                     </p>
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-500 dark:text-cyan-400 font-bold text-lg">{testimonial.initial}</div>
+                      <div className="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-500 dark:text-cyan-400 font-bold text-lg">
+                        {testimonial.initial}
+                      </div>
                       <div>
-                        <p className="dark:text-white text-slate-900 font-bold text-sm">{testimonial.name}</p>
-                        <p className="text-cyan-500 dark:text-cyan-400 text-xs font-semibold">{testimonial.role}</p>
+                        <p className="dark:text-white text-slate-900 font-bold text-sm">{t(testimonial.nameKey)}</p>
+                        <p className="text-cyan-500 dark:text-cyan-400 text-xs font-semibold">{t(testimonial.roleKey)}</p>
                       </div>
                     </div>
                   </div>
@@ -156,21 +126,19 @@ export default function HomePage() {
             <h2 className="h2 gradient-text">{t('edu.title')}</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
-            {[
-              { period: t('edu.1.period'), title: t('edu.1.title'), institution: t('edu.1.institution'), desc: t('edu.1.desc') },
-              { period: '', title: t('edu.2.title'), institution: '', desc: t('edu.2.desc') },
-              { period: '', title: t('edu.3.title'), institution: '', desc: t('edu.3.desc') },
-            ].map((edu, idx) => (
+            {educationList.map((edu, idx) => (
               <div key={idx} className="card-hover">
                 <div className="card">
-                  {edu.period && (
+                  {edu.periodKey && (
                     <div className="inline-block px-3 py-1 bg-cyan-500/15 rounded-full mb-3">
-                      <span className="text-cyan-500 dark:text-cyan-400 font-bold text-sm tracking-wide">{edu.period}</span>
+                      <span className="text-cyan-500 dark:text-cyan-400 font-bold text-sm tracking-wide">{t(edu.periodKey)}</span>
                     </div>
                   )}
-                  <h3 className="dark:text-white text-slate-900 font-extrabold text-xl mb-2 leading-snug">{edu.title}</h3>
-                  {edu.institution && <p className="text-cyan-500 dark:text-cyan-400 font-semibold mb-3 text-sm">{edu.institution}</p>}
-                  <p className="dark:text-gray-200 text-slate-700 text-base leading-relaxed font-medium">{edu.desc}</p>
+                  <h3 className="dark:text-white text-slate-900 font-extrabold text-xl mb-2 leading-snug">{t(edu.titleKey)}</h3>
+                  {edu.institutionKey && (
+                    <p className="text-cyan-500 dark:text-cyan-400 font-semibold mb-3 text-sm">{t(edu.institutionKey)}</p>
+                  )}
+                  <p className="dark:text-gray-200 text-slate-700 text-base leading-relaxed font-medium">{t(edu.descKey)}</p>
                 </div>
               </div>
             ))}
@@ -186,15 +154,15 @@ export default function HomePage() {
             <h2 className="h2 gradient-text">{t('skills.title')}</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { category: "BACKEND", skills: "Java, Spring Boot, Spring Data JPA, Hibernate, REST APIs, MySQL, PostgreSQL" },
-              { category: "TOOLS", skills: "Git, GitHub, Maven, Docker, Postman" },
-              { category: "FUNDAMENTALS", skills: "OOP, Data Structures, SOLID Principles, JSON, HTTP" },
-            ].map((skillGroup, idx) => (
+            {skillGroups.map((skillGroup, idx) => (
               <div key={idx} className="card-hover">
                 <div className="card">
-                  <h3 className="font-extrabold text-cyan-500 dark:text-cyan-400 mb-4 text-lg uppercase tracking-wide">{skillGroup.category}</h3>
-                  <p className="dark:text-gray-200 text-slate-700 text-base leading-relaxed font-medium">{skillGroup.skills}</p>
+                  <h3 className="font-extrabold text-cyan-500 dark:text-cyan-400 mb-4 text-lg uppercase tracking-wide">
+                    {t(skillGroup.categoryKey)}
+                  </h3>
+                  <p className="dark:text-gray-200 text-slate-700 text-base leading-relaxed font-medium">
+                    {t(skillGroup.skillsKey)}
+                  </p>
                 </div>
               </div>
             ))}
@@ -217,14 +185,19 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, idx) => (
+            {projects.slice(0, 2).map((project, idx) => (
               <div key={idx} className="card-hover">
                 <div className="card flex flex-col h-full">
-                  <div className="mb-4">
-                    <img src={project.image} alt={project.title} className="w-full h-36 object-cover rounded-lg" />
+                  <div className="mb-4 relative w-full h-36">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover rounded-lg"
+                    />
                   </div>
                   <h3 className="dark:text-white text-slate-900 font-extrabold text-xl mb-3">{project.title}</h3>
-                  <p className="dark:text-gray-200 text-slate-700 mb-4 flex-grow text-base leading-relaxed font-medium">{project.description}</p>
+                  <p className="dark:text-gray-200 text-slate-700 mb-4 flex-grow text-base leading-relaxed font-medium">{t(project.descriptionKey)}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, i) => (
                       <span key={i} className="text-xs px-3 py-1 bg-cyan-500/10 text-cyan-500 dark:text-cyan-400 rounded-full font-semibold">{tag}</span>

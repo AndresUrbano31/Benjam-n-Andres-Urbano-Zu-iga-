@@ -1,9 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { Share2, MessageCircle, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useLanguage } from '@/components/language-context';
+import { navigationItems } from '@/config/navigation';
+import { socialLinks } from '@/config/links';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -21,36 +23,33 @@ export function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4 text-cyan-500 dark:text-cyan-400">{t('footer.links')}</h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/" className="dark:text-gray-400 text-slate-600 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
-                  {t('nav.home')}
-                </Link>
-              </li>
-              <li>
-                <Link href="/proyectos" className="dark:text-gray-400 text-slate-600 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
-                  {t('nav.projects')}
-                </Link>
-              </li>
-              <li>
-                <Link href="/contacto" className="dark:text-gray-400 text-slate-600 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
-                  {t('nav.contact')}
-                </Link>
-              </li>
+              {navigationItems.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="dark:text-gray-400 text-slate-600 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
+                    {t(item.labelKey)}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
             <h3 className="font-bold text-lg mb-4 text-cyan-500 dark:text-cyan-400">{t('footer.follow')}</h3>
             <div className="flex gap-4">
-              <a href="https://github.com/AndresUrbano31" target="_blank" rel="noopener noreferrer"
+              <a href={socialLinks.github} target="_blank" rel="noopener noreferrer"
                 className="p-2 rounded-lg dark:bg-slate-900/50 bg-slate-100 hover:bg-cyan-500/10 dark:text-gray-400 text-slate-600 hover:text-cyan-500 dark:hover:text-cyan-400 transition-all"
                 aria-label="GitHub">
                 <FaGithub size={24} />
               </a>
-              <a href="https://www.linkedin.com/in/benjam%C3%ADn-urbano-2108z" target="_blank" rel="noopener noreferrer"
+              <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer"
                 className="p-2 rounded-lg dark:bg-slate-900/50 bg-slate-100 hover:bg-cyan-500/10 dark:text-gray-400 text-slate-600 hover:text-cyan-500 dark:hover:text-cyan-400 transition-all"
                 aria-label="LinkedIn">
                 <FaLinkedin size={24} />
+              </a>
+              <a href={socialLinks.email}
+                className="p-2 rounded-lg dark:bg-slate-900/50 bg-slate-100 hover:bg-cyan-500/10 dark:text-gray-400 text-slate-600 hover:text-cyan-500 dark:hover:text-cyan-400 transition-all"
+                aria-label="Email">
+                <Mail size={24} />
               </a>
             </div>
           </div>

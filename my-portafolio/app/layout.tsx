@@ -5,6 +5,8 @@ import { Footer } from '@/components/footer';
 import { BottomNavigation } from '@/components/bottom-navigation';
 import { ThemeProvider } from 'next-themes';
 import { LanguageProvider } from '@/components/language-context';
+import { Analytics } from '@vercel/analytics/react';
+import { ErrorBoundary } from '@/components/error-boundary';
 
 export const metadata: Metadata = {
   title: 'Portfolio | Benjamin Urbano - Full-Stack Developer',
@@ -43,16 +45,19 @@ export default function RootLayout({
           disableTransitionOnChange={false}
         >
           <LanguageProvider>
-            <div className="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-white min-h-screen flex flex-col transition-colors duration-300">
-              <Header />
-              <main className="flex-1 md:pb-0 pb-28">
-                {children}
-              </main>
-              <Footer />
-              <BottomNavigation />
-            </div>
+            <ErrorBoundary>
+              <div className="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-white min-h-screen flex flex-col transition-colors duration-300">
+                <Header />
+                <main className="flex-1 md:pb-0 pb-28">
+                  {children}
+                </main>
+                <Footer />
+                <BottomNavigation />
+              </div>
+            </ErrorBoundary>
           </LanguageProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

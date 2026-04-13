@@ -1,67 +1,12 @@
 "use client";
+import Image from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { ExternalLink } from "lucide-react";
 import { useLanguage } from "@/components/language-context";
+import { projects } from "@/data/projects";
 
 export default function ProjectsPage() {
-  const { t, language } = useLanguage();
-
-  const projects = [
-    {
-      title: "Profile Cards UI",
-      description: "Profile card component built with Next.js and Tailwind CSS. Includes dark and light theme, avatar, stats, and contact button.",
-      descriptionEs: "Componente de tarjetas de perfil construido con Next.js y Tailwind CSS. Incluye tema oscuro y claro, avatar, estadísticas y botón de contacto.",
-      tags: ["Next.js", "React", "Tailwind CSS", "TypeScript", "CSS Flexbox"],
-      link: "https://taller-practico-five.vercel.app/",
-      github: "https://github.com/AndresUrbano31/Taller-Practico",
-      image: "/Cards.png",
-    },
-    {
-      title: "Astro Sign Up",
-      description: "Registration form with space design. Includes Google and Facebook authentication, input fields, and responsive design with visual panel.",
-      descriptionEs: "Formulario de registro con diseño espacial. Incluye autenticación con Google y Facebook, campos de entrada y diseño responsive con panel visual.",
-      tags: ["Next.js", "Tailwind CSS", "React", "TypeScript", "CSS Flexbox"],
-      link: "https://dise-o-de-interfaces-taller-4.vercel.app/",
-      github: "https://github.com/AndresUrbano31/Dise-o-de-interfaces-taller-4",
-      image: "/Exploring.png",
-    },
-    {
-      title: "Analytical Dashboard",
-      description: "Interactive SaaS dashboard with real-time metrics, session chart, conversion gauge, and navigation sidebar. Built with Next.js and Tailwind CSS.",
-      descriptionEs: "Dashboard SaaS interactivo con métricas en tiempo real, gráfico de sesiones, gauge de conversión y sidebar de navegación. Construido con Next.js y Tailwind CSS.",
-      tags: ["Next.js", "Tailwind CSS", "React", "TypeScript", "CSS Grid"],
-      link: "#",
-      github: "#",
-      image: "/dashboard.png",
-    },
-    {
-      title: "Red Heaven Card",
-      description: "Card UI built with Next.js and Tailwind CSS applying Flexbox concepts. Includes image, title, description, and tags with custom styles.",
-      descriptionEs: "Card UI construida con Next.js y Tailwind CSS aplicando conceptos de Flexbox. Incluye imagen, título, descripción y tags con estilos personalizados.",
-      tags: ["Next.js", "Tailwind CSS", "React", "TypeScript", "CSS Flexbox"],
-      link: "https://dise-o-de-interfaces-git-master-andresurbano31s-projects.vercel.app/",
-      github: "https://github.com/AndresUrbano31/dise-oDeInterfaces",
-      image: "/Card.png",
-    },
-    {
-      title: "Corporate Landing Page",
-      description: "Responsive corporate website with smooth animations, interactive sections, and SEO optimization for maximum visibility.",
-      descriptionEs: "Sitio web corporativo responsivo con animaciones suaves, secciones interactivas y optimización SEO para máxima visibilidad.",
-      tags: ["Next.js", "Tailwind CSS", "Framer Motion", "SEO"],
-      link: "#",
-      github: "#",
-      image: "🌐",
-    },
-    {
-      title: "Fitness Mobile App",
-      description: "Exercise tracking application with authentication, progress tracking, and community. Cloud synchronization.",
-      descriptionEs: "Aplicación para seguimiento de ejercicio con autenticación, tracking de progreso y comunidad. Sincronización en la nube.",
-      tags: ["React Native", "Firebase", "Expo", "Redux"],
-      link: "#",
-      github: "#",
-      image: "💪",
-    },
-  ];
+  const { t } = useLanguage();
 
   return (
     <div
@@ -89,14 +34,23 @@ export default function ProjectsPage() {
               <div className="card flex flex-col h-full">
                 <div className="mb-4">
                   {project.image.startsWith("/") ? (
-                    <img src={project.image} alt={project.title} className="w-full h-36 object-cover rounded-lg" />
+                    <div className="relative w-full h-36">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover rounded-lg"
+                      />
+                    </div>
                   ) : (
-                    <div className="w-full h-48 flex items-center justify-center text-5xl rounded-lg bg-slate-100 dark:bg-slate-800/50">{project.image}</div>
+                    <div className="w-full h-48 flex items-center justify-center text-5xl rounded-lg bg-slate-100 dark:bg-slate-800/50">
+                      {project.image}
+                    </div>
                   )}
                 </div>
                 <h3 className="dark:text-white text-slate-900 font-extrabold text-xl mb-3">{project.title}</h3>
                 <p className="dark:text-gray-200 text-slate-700 mb-6 flex-grow text-base leading-relaxed font-medium">
-                  {language === 'en' ? project.description : project.descriptionEs}
+                  {t(project.descriptionKey)}
                 </p>
                 <div className="mb-6 flex flex-wrap gap-2">
                   {project.tags.map((tag, i) => (
