@@ -2,12 +2,18 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Briefcase, Mail } from 'lucide-react';
+import { Home, Briefcase, Mail, Sun, Moon, Globe } from 'lucide-react';
 import { useLanguage } from '@/components/language-context';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export function BottomNavigation() {
   const pathname = usePathname();
-  const { t } = useLanguage();
+  const { t, language, setLanguage } = useLanguage();
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   const navigationItems = [
     { name: t('nav.home.label'), href: '/', icon: Home },
@@ -36,6 +42,26 @@ export function BottomNavigation() {
             </Link>
           );
         })}
+
+        {/* Language toggle */}
+        <button
+          onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
+          className="flex flex-col items-center gap-1 px-4 py-2 rounded-lg transition-all text-slate-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400"
+        >
+          <Globe size={24} />
+          <span className="text-xs font-medium">{language === 'en' ? 'EN' : 'ES'}</span>
+        </button>
+
+        {/* Theme toggle */}
+        {mounted && (
+          <button
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="flex flex-col items-center gap-1 px-4 py-2 rounded-lg transition-all text-slate-500 dark:text-gray-400 hover:text-cyan-500 dark:hover:text-cyan-400"
+          >
+            {theme === 'dark' ? <Sun size={24} /> : <Moon size={24} />}
+            <span className="text-xs font-medium">{theme === 'dark' ? 'Light' : 'Dark'}</span>
+          </button>
+        )}
       </div>
     </nav>
   );
