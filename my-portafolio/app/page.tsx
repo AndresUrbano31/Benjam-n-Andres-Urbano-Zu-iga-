@@ -31,6 +31,22 @@ export default function HomePage() {
     },
   ];
 
+  const testimonials = [
+  {
+    text: t('home.testimonial.1.text'),
+    name: t('home.testimonial.1.name'),
+    role: t('home.testimonial.1.role'),
+    initial: "R",
+  },
+  {
+    text: t('home.testimonial.2.text'),
+    name: t('home.testimonial.2.name'),
+    role: t('home.testimonial.2.role'),
+    initial: "P",
+  },
+];
+;
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -111,17 +127,17 @@ export default function HomePage() {
           <div className="mt-4">
             <h2 className="h2 gradient-text text-center mb-10">{t('home.testimonials')}</h2>
             <div className="grid md:grid-cols-2 gap-8">
-              {[0, 1].map((idx) => (
+              {testimonials.map((testimonial, idx) => (
                 <div key={idx} className="card-hover">
                   <div className="card">
                     <p className="dark:text-gray-200 text-slate-700 mb-6 italic text-base leading-relaxed font-medium">
-                      "{t('home.testimonial.text')}"
+                      "{testimonial.text}"
                     </p>
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-500 dark:text-cyan-400 font-bold text-lg">N</div>
+                      <div className="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-500 dark:text-cyan-400 font-bold text-lg">{testimonial.initial}</div>
                       <div>
-                        <p className="dark:text-white text-slate-900 font-bold text-sm">Name Surname</p>
-                        <p className="text-cyan-500 dark:text-cyan-400 text-xs font-semibold">{t('home.testimonial.role')}</p>
+                        <p className="dark:text-white text-slate-900 font-bold text-sm">{testimonial.name}</p>
+                        <p className="text-cyan-500 dark:text-cyan-400 text-xs font-semibold">{testimonial.role}</p>
                       </div>
                     </div>
                   </div>

@@ -33,8 +33,14 @@ const translations = {
     'home.contact.btn': 'Contact Me',
     'home.download.cv': 'Download CV',
     'home.testimonials': 'What they say about me',
-    'home.testimonial.role': 'Position · Company',
     'home.testimonial.text': 'Write the testimonial here. You can describe the experience of working together and the results obtained.',
+    'home.testimonial.role': 'Position · Company',
+    'home.testimonial.1.text': 'Andrés is a committed and detail-oriented developer. He helped us digitize accounting processes we used to do manually, achieving a clear, efficient, and easy-to-use solution for our team.',
+    'home.testimonial.1.name': 'Ricardo Rosero',
+    'home.testimonial.1.role': 'Public Accountant',
+    'home.testimonial.2.text': 'Working with Andrés was a very positive experience. He understood our needs as accountants and translated those requirements into a functional and well-structured tool. Very professional for his level of training.',
+    'home.testimonial.2.name': 'Paola Torres',
+    'home.testimonial.2.role': 'Public Accountant',
 
     // Education
     'edu.title': 'Education',
@@ -115,8 +121,14 @@ const translations = {
     'home.contact.btn': 'Contáctame',
     'home.download.cv': 'Descargar CV',
     'home.testimonials': 'Lo que dicen de mí',
-    'home.testimonial.role': 'Cargo · Empresa',
     'home.testimonial.text': 'Escribe aquí el testimonio de esta persona. Puedes describir la experiencia de trabajar juntos y los resultados obtenidos.',
+    'home.testimonial.role': 'Cargo · Empresa',
+    'home.testimonial.1.text': 'Andrés es un desarrollador comprometido y detallista. Nos ayudó a digitalizar procesos contables que antes hacíamos manualmente, logrando una solución clara, eficiente y fácil de usar para nuestro equipo.',
+    'home.testimonial.1.name': 'Ricardo Rosero',
+    'home.testimonial.1.role': 'Contador Público',
+    'home.testimonial.2.text': 'Trabajar con Andrés fue una experiencia muy positiva. Supo entender nuestras necesidades como contadores y tradujo esos requerimientos en una herramienta funcional y bien estructurada. Muy profesional para su nivel de formación.',
+    'home.testimonial.2.name': 'Paola Torres',
+    'home.testimonial.2.role': 'Contadora Pública',
 
     // Education
     'edu.title': 'Educación',
