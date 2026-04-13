@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Lottie from "lottie-react";
+import robotAnimation from "@/public/robot.json";
 import { FaGithub } from "react-icons/fa";
 import { Users, BookOpen, Code2, Award, ExternalLink, ArrowRight, Download } from "lucide-react";
 import { useLanguage } from "@/components/language-context";
@@ -32,26 +34,20 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section
-        className="relative py-20 md:py-32 px-6 md:px-8 lg:px-16 min-h-screen flex items-center"
-        style={{
-          backgroundImage: "url(/AI.png)",
-          backgroundPosition: "center center",
-          backgroundSize: "contain",
-          backgroundRepeat: "no-repeat",
-          backgroundColor: "#f8fafc",
-        }}
-      >
-        <div className="absolute inset-0 bg-white/80 dark:bg-slate-950/85 pointer-events-none" />
-
+      <section className="relative py-20 md:py-32 px-6 md:px-8 lg:px-16 min-h-screen flex items-center bg-slate-50 dark:bg-slate-950">
         <div className="relative max-w-7xl mx-auto w-full">
-          <div className="mb-16 animate-fade-in-up">
-            <div className="text-center mb-2">
+
+          {/* Título + Robot */}
+          <div className="grid md:grid-cols-2 gap-8 items-center mb-16 animate-fade-in-up">
+            <div>
               <h1 className="h1 gradient-text mb-2">Benjamín Andrés Urbano Zúñiga</h1>
               <h2 className="h1 gradient-text mb-6">{t('home.title')}</h2>
-              <p className="text-xl dark:text-gray-300 text-slate-800 max-w-2xl font-medium leading-relaxed mx-auto">
+              <p className="text-xl dark:text-gray-300 text-slate-800 max-w-2xl font-medium leading-relaxed">
                 {t('home.subtitle')}
               </p>
+            </div>
+            <div className="flex justify-center">
+              <Lottie animationData={robotAnimation} loop={true} className="w-full max-w-md" />
             </div>
           </div>
 
@@ -102,7 +98,7 @@ export default function HomePage() {
                     {t('home.contact.btn')}
                     <ArrowRight size={16} />
                   </Link>
-                  <Link href="/curriculum.pdf" className="inline-flex items-center gap-2 px-4 py-2 button-primary">
+                  <Link href="/cv.pdf" className="inline-flex items-center gap-2 px-4 py-2 button-primary">
                     <Download size={18} />
                     {t('home.download.cv')}
                   </Link>

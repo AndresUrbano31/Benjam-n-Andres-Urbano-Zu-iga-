@@ -44,8 +44,8 @@ export default function ContactPage() {
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {[
-            { icon: Mail, label: t('contact.email'), value: 'benjamin@example.com' },
-            { icon: Phone, label: t('contact.phone'), value: '+57 (123) 456-7890' },
+            { icon: Mail, label: t('contact.email'), value: 'aurbano535@gmail.com' },
+            { icon: Phone, label: t('contact.phone'), value: '+57 (314) 432-0725' },
             { icon: MapPin, label: t('contact.location'), value: 'Colombia' },
           ].map(({ icon: Icon, label, value }, idx) => (
             <div key={idx} className="card-hover">
